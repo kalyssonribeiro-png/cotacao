@@ -1,0 +1,672 @@
+=<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> • </title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- ====== DADOS DA VIAGEM - N8N SUBSTITUI AQUI ====== -->
+    <script>
+    window.tripData = {
+        // ===== MARCA =====
+        marca: {
+            nome: "",
+            slogan: "",
+            whatsapp: "",
+            instagram: "",
+            site: "",
+            email: "",
+            ano: ""
+        },
+
+        // ===== DESTINO =====
+        destino: {
+            nome: "Paris",
+            imagem: "",
+            label: "Capital da França",
+            descricao: ""
+        },
+
+        // ===== VOOS =====
+        voos: {
+            ida: {
+                data: "2026-10-10",
+                origem_codigo: "GRU",
+                origem_cidade: "São Paulo",
+                destino_codigo: "CDG",
+                destino_cidade: "Paris",
+                saida: "22:30",
+                chegada: "14:20",
+                duracao: "11h50"
+            },
+            duracao_dias: "7",
+            duracao_noites: "6",
+            volta: {
+                data: "2026-10-17",
+                origem_codigo: "CDG",
+                origem_cidade: "Paris",
+                destino_codigo: "GRU",
+                destino_cidade: "São Paulo",
+                saida: "10:30",
+                chegada: "18:40",
+                duracao: "12h10"
+            }
+        },
+
+        // ===== FILOSOFIA =====
+        filosofia: {
+            parte1: "",
+            parte2: ""
+        },
+
+        // ===== HOTÉIS - JSON COMPLETO =====
+        hoteis: [
+            {
+                id: "hotel1",
+                numero: "01",
+                destaque: false,
+                badge: "",
+                nome: "Hotel Lumière",
+                regiao: "Centro de Paris",
+                estrelas: 4,
+                tipo: "Hotel",
+                descricao: "Hotel Lumière, 4 estrelas, localizado no centro de Paris",
+                comodidades: [
+                    { "icon": "", "nome": "" }
+                ],
+                imagens: [],
+                preco_duplo: "€1.890",
+                preco_triplo: "€2.490"
+            },
+            {
+                id: "hotel2",
+                numero: "02",
+                destaque: false,
+                badge: "",
+                nome: "Seine Palace Hotel",
+                regiao: "Margem do Rio Sena",
+                estrelas: 5,
+                tipo: "Hotel",
+                descricao: "Seine Palace Hotel, 5 estrelas, à beira do Rio Sena",
+                comodidades: [
+                    { "icon": "", "nome": "" }
+                ],
+                imagens: [],
+                preco_duplo: "€1.890",
+                preco_triplo: "€2.490"
+            },
+            {
+                id: "hotel3",
+                numero: "03",
+                destaque: true,
+                badge: "★ RECOMENDADO",
+                nome: "Grand Paris Resort",
+                regiao: "Região Champs-Élysées",
+                estrelas: 5,
+                tipo: "Hotel",
+                descricao: "Grand Paris Resort, 5 estrelas, na região da Champs-Élysées",
+                comodidades: [
+                    { "icon": "", "nome": "" }
+                ],
+                imagens: [],
+                preco_duplo: "€1.890",
+                preco_triplo: "€2.490"
+            }
+        ],
+
+        // ===== PAGAMENTO =====
+        pagamentos: [
+            "Cartão em até 10x",
+            "PIX com desconto",
+            "Boleto",
+            "Transferência"
+        ]
+    };
+    </script>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span id="nav-marca"></span>
+            </div>
+            <div class="nav-links">
+                <a href="#voos" class="nav-link">Voos</a>
+                <a href="#hoteis" class="nav-link">Hotéis</a>
+                <a href="#filosofia" class="nav-link">Conceito</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </div>
+            <div class="nav-contact">
+                <a id="nav-whatsapp" href="#" class="cta-button" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Consultar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div id="hero-bg" class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <div id="hero-label" class="hero-label"></div>
+                <h1 class="hero-title">
+                    <span id="hero-titulo" class="word"></span>
+                </h1>
+                <div id="hero-descricao" class="hero-subtitle"></div>
+            </div>
+
+            <a href="#voos" class="hero-cta">
+                Explorar Agora <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <svg width="20" height="30" viewBox="0 0 20 30">
+                <path d="M10 5L10 25M10 25L5 20M10 25L15 20" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- VOOS -->
+    <section id="voos" class="section-flights">
+        <div class="container">
+            <div class="section-header">
+                <h2>Seus Voos Diretos</h2>
+                <p>Conforto e rapidez.</p>
+            </div>
+
+            <div id="voos-container" class="flights-grid">
+                <!-- Renderizado via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FILOSOFIA -->
+    <section id="filosofia" class="section-philosophy">
+        <div class="philosophy-bg"></div>
+        <div class="container">
+            <div class="philosophy-content">
+                <p id="filosofia-parte1" class="philosophy-intro"></p>
+                <p id="filosofia-parte2" class="philosophy-contrast"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECURSOS -->
+    <section class="section-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por Que Viajar Conosco</h2>
+                <p>Cada detalhe pensado para sua melhor viagem.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card payment-card">
+                    <div class="card-header">
+                        <h3>Formas de Pagamento</h3>
+                        <p>Flexibilidade total para você</p>
+                    </div>
+                    <div id="pagamentos-container" class="payment-options">
+                        <!-- Renderizado via JS -->
+                    </div>
+                </div>
+
+                <div class="feature-card typewriter-card">
+                    <div class="card-header">
+                        <h3>Contato Direto</h3>
+                        <p>
+                            <span class="live-pulse"></span>
+                            Disponível agora
+                        </p>
+                    </div>
+                    <div class="typewriter-display">
+                        <div id="typewriter-content" class="typewriter-content"></div>
+                        <span class="cursor"></span>
+                    </div>
+                </div>
+
+                <div class="feature-card protocol-card">
+                    <div class="card-header">
+                        <h3>Itinerário Flexível</h3>
+                        <p>Personalize cada dia da viagem</p>
+                    </div>
+                    <div class="protocol-scheduler">
+                        <canvas id="protocol-canvas" width="280" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOTÉIS -->
+    <section id="hoteis" class="section-hotels">
+        <div class="container">
+            <div class="section-header">
+                <h2>Opções de Hospedagem</h2>
+                <p>Cada uma, uma experiência única.</p>
+            </div>
+
+            <div id="hoteis-container" class="hotels-stack">
+                <!-- Renderizado via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contato" class="section-cta">
+        <div class="container">
+            <h2>Pronto para Partir?</h2>
+            <p>Fale conosco e reserve sua experiência.</p>
+            <div id="cta-buttons" class="cta-buttons">
+                <!-- Renderizado via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fa-solid fa-paper-plane"></i> <span id="footer-marca"></span></h3>
+                    <p id="footer-slogan"></p>
+                </div>
+                <div id="footer-links" class="footer-links">
+                    <!-- Renderizado via JS -->
+                </div>
+            </div>
+            <div class="footer-status">
+                <span class="status-dot"></span> Sistema Operacional
+            </div>
+            <p id="footer-copy" class="footer-copy"></p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE RENDERIZAÇÃO -->
+    <script>
+    // ============================================
+    // RENDERIZAÇÃO DINÂMICA
+    // ============================================
+    gsap.registerPlugin(ScrollTrigger);
+
+    function renderizar() {
+        const d = window.tripData;
+        if (!d) return;
+
+        // Título
+        document.title = `${d.destino.nome} • ${d.marca.nome}`;
+
+        // Marca
+        document.getElementById('nav-marca').textContent = d.marca.nome;
+        document.getElementById('footer-marca').textContent = d.marca.nome;
+        document.getElementById('footer-slogan').textContent = d.marca.slogan;
+
+        // Hero
+        document.getElementById('hero-bg').style.backgroundImage = `url('${d.destino.imagem}')`;
+        document.getElementById('hero-label').textContent = d.destino.label;
+        document.getElementById('hero-titulo').textContent = d.destino.nome;
+        document.getElementById('hero-descricao').textContent = d.destino.descricao;
+
+        // Voos
+        const voosContainer = document.getElementById('voos-container');
+        voosContainer.innerHTML = `
+            <div class="flight-card outbound-card">
+                <div class="flight-header">
+                    <div class="flight-label">Ida</div>
+                    <div class="flight-date">${d.voos.ida.data}</div>
+                </div>
+                <div class="flight-route-display">
+                    <div class="airport">
+                        <div class="code">${d.voos.ida.origem_codigo}</div>
+                        <div class="city">${d.voos.ida.origem_cidade}</div>
+                    </div>
+                    <div class="route-arrow">
+                        <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+                            <line x1="10" y1="20" x2="80" y2="20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+                            <circle cx="88" cy="20" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="airport">
+                        <div class="code">${d.voos.ida.destino_codigo}</div>
+                        <div class="city">${d.voos.ida.destino_cidade}</div>
+                    </div>
+                </div>
+                <div class="flight-time">${d.voos.ida.saida} — ${d.voos.ida.chegada}</div>
+                <div class="flight-info">Voo Direto • ${d.voos.ida.duracao}</div>
+                <div class="flight-details">
+                    <span class="flight-detail-tag"><i class="fa-solid fa-suitcase"></i> Bagagem inclusa</span>
+                </div>
+            </div>
+            <div class="duration-card">
+                <div class="duration-icon"><i class="fa-regular fa-calendar"></i></div>
+                <div class="duration-content">
+                    <h3>Período</h3>
+                    <p class="duration-value">${d.voos.duracao_dias} Dias</p>
+                    <p class="duration-sub">${d.voos.duracao_noites} Noites</p>
+                </div>
+            </div>
+            <div class="flight-card return-card">
+                <div class="flight-header">
+                    <div class="flight-label">Volta</div>
+                    <div class="flight-date">${d.voos.volta.data}</div>
+                </div>
+                <div class="flight-route-display">
+                    <div class="airport">
+                        <div class="code">${d.voos.volta.origem_codigo}</div>
+                        <div class="city">${d.voos.volta.origem_cidade}</div>
+                    </div>
+                    <div class="route-arrow">
+                        <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+                            <line x1="10" y1="20" x2="80" y2="20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+                            <circle cx="88" cy="20" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="airport">
+                        <div class="code">${d.voos.volta.destino_codigo}</div>
+                        <div class="city">${d.voos.volta.destino_cidade}</div>
+                    </div>
+                </div>
+                <div class="flight-time">${d.voos.volta.saida} — ${d.voos.volta.chegada}</div>
+                <div class="flight-info">Voo Direto • ${d.voos.volta.duracao}</div>
+                <div class="flight-details">
+                    <span class="flight-detail-tag"><i class="fa-solid fa-suitcase"></i> Bagagem inclusa</span>
+                </div>
+            </div>
+        `;
+
+        // Filosofia
+        document.getElementById('filosofia-parte1').innerHTML = d.filosofia.parte1;
+        document.getElementById('filosofia-parte2').innerHTML = d.filosofia.parte2;
+
+        // Pagamentos
+        const pagamentosContainer = document.getElementById('pagamentos-container');
+        pagamentosContainer.innerHTML = d.pagamentos.map(p => {
+            const parts = p.split('|');
+            return `
+                <div class="payment-item">
+                    <div class="payment-icon"><i class="fa-regular ${parts[0]}"></i></div>
+                    <div class="payment-info">
+                        <span class="payment-highlight">${parts[1]}</span>
+                        <small>${parts[2]}</small>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Hotéis
+        const hoteisContainer = document.getElementById('hoteis-container');
+        hoteisContainer.innerHTML = d.hoteis.map(h => {
+            const estrelas = '★'.repeat(h.estrelas);
+            const destaqueClass = h.destaque ? 'featured' : '';
+            const badge = h.badge ? `<div class="hotel-badge">${h.badge}</div>` : '';
+
+            return `
+                <div class="hotel-stack-item ${destaqueClass}">
+                    ${badge}
+                    <div class="hotel-number">${h.numero}</div>
+                    <div class="hotel-gallery">
+                        <div class="gallery-container" id="gallery-${h.id}">
+                            ${h.imagens.map(img => `<div class="gallery-slide" style="background-image: url('${img}')"></div>`).join('')}
+                        </div>
+                        <div class="gallery-dots" id="dots-${h.id}"></div>
+                        <button class="gallery-nav prev" onclick="galleryMove('${h.id}', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="gallery-nav next" onclick="galleryMove('${h.id}', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>${h.nome}</h3>
+                        <p class="hotel-region"><i class="fa-solid fa-location-dot"></i> ${h.regiao}</p>
+                        <div class="hotel-rating">
+                            <span class="hotel-stars">${estrelas}</span>
+                            <span class="hotel-rating-text">${h.tipo}</span>
+                        </div>
+                        <p class="hotel-description">${h.descricao}</p>
+                        <div class="hotel-amenities">
+                            ${h.comodidades.map(c => `<span class="amenity-tag"><i class="fa-solid ${c.icon}"></i> ${c.nome}</span>`).join('')}
+                        </div>
+                        <div class="hotel-prices">
+                            <div class="price-box">
+                                <span>Duplo</span>
+                                <strong>${h.preco_duplo}</strong>
+                            </div>
+                            <div class="price-box">
+                                <span>Triplo</span>
+                                <strong>${h.preco_triplo}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // CTA
+        const ctaButtons = document.getElementById('cta-buttons');
+        ctaButtons.innerHTML = `
+            <a href="https://wa.me/${d.marca.whatsapp}" class="btn btn-primary" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:${d.marca.email}" class="btn btn-secondary">
+                <i class="fa-solid fa-envelope"></i> Email
+            </a>
+            <a href="${d.marca.site}" class="btn btn-secondary" target="_blank">
+                <i class="fa-solid fa-globe"></i> Site
+            </a>
+        `;
+
+        // Footer
+        const footerLinks = document.getElementById('footer-links');
+        footerLinks.innerHTML = `
+            <a href="${d.marca.instagram}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/${d.marca.whatsapp}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="${d.marca.site}" target="_blank"><i class="fa-solid fa-globe"></i></a>
+        `;
+
+        document.getElementById('footer-copy').textContent = `© ${d.marca.ano} ${d.marca.nome}. Todos os direitos reservados.`;
+
+        // Navbar WhatsApp
+        document.getElementById('nav-whatsapp').href = `https://wa.me/${d.marca.whatsapp}`;
+    }
+
+    // ============================================
+    // GALERIA
+    // ============================================
+    const galleries = {};
+
+    function initGalerias() {
+        document.querySelectorAll('.gallery-container').forEach((container, idx) => {
+            const hotelId = container.id.replace('gallery-', '');
+            const dots = container.parentElement.querySelector('.gallery-dots');
+            const slides = container.querySelectorAll('.gallery-slide');
+
+            if (slides.length > 0) {
+                galleries[hotelId] = { current: 0, total: slides.length, slides, dotsContainer: dots };
+                if (dots) {
+                    dots.innerHTML = '';
+                    for (let i = 0; i < slides.length; i++) {
+                        const dot = document.createElement('div');
+                        dot.className = `dot ${i === 0 ? 'active' : ''}`;
+                        dot.onclick = () => goToSlide(hotelId, i);
+                        dots.appendChild(dot);
+                    }
+                }
+                updateGallery(hotelId);
+            }
+        });
+    }
+
+    function galleryMove(id, dir) {
+        if (!galleries[id]) return;
+        const g = galleries[id];
+        g.current = (g.current + dir + g.total) % g.total;
+        updateGallery(id);
+    }
+
+    function goToSlide(id, idx) {
+        if (!galleries[id]) return;
+        galleries[id].current = idx;
+        updateGallery(id);
+    }
+
+    function updateGallery(id) {
+        const g = galleries[id];
+        g.slides.forEach((s, i) => s.classList.toggle('active', i === g.current));
+        if (g.dotsContainer) {
+            g.dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === g.current));
+        }
+    }
+
+    function autoAdvanceGalerias() {
+        Object.keys(galleries).forEach((id, idx) => {
+            setInterval(() => galleryMove(id, 1), 5000 + idx * 1500);
+        });
+    }
+
+    // ============================================
+    // TYPEWRITER
+    // ============================================
+    const typewriterTexts = ['Disponível agora', 'Atendimento 24h', 'Consulte já!'];
+    let textIdx = 0, charIdx = 0, isDeleting = false;
+    const typewriterEl = document.getElementById('typewriter-content');
+
+    function typeWriter() {
+        if (!typewriterEl) return;
+        const txt = typewriterTexts[textIdx];
+        typewriterEl.textContent = isDeleting ? txt.substring(0, charIdx - 1) : txt.substring(0, charIdx + 1);
+        charIdx = isDeleting ? charIdx - 1 : charIdx + 1;
+
+        if (!isDeleting && charIdx === txt.length) {
+            setTimeout(() => isDeleting = true, 2000);
+        } else if (isDeleting && charIdx === 0) {
+            isDeleting = false;
+            textIdx = (textIdx + 1) % typewriterTexts.length;
+        }
+        setTimeout(typeWriter, isDeleting ? 50 : 100);
+    }
+
+    // ============================================
+    // CANVAS PROTOCOLO
+    // ============================================
+    function drawProtocolCanvas() {
+        const canvas = document.getElementById('protocol-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, 280, 180);
+
+        const points = [{x: 40, y: 90}, {x: 120, y: 50}, {x: 200, y: 90}, {x: 240, y: 130}];
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        points.forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.strokeStyle = '#48B5A0';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([4, 4]);
+        ctx.stroke();
+
+        points.forEach((p, i) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+            ctx.fillStyle = i === 2 ? '#48B5A0' : '#E8896F';
+            ctx.fill();
+            ctx.strokeStyle = '#0F4C5C';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([]);
+            ctx.stroke();
+        });
+    }
+
+    // ============================================
+    // ANIMAÇÕES GSAP
+    // ============================================
+    function initAnimations() {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY > 50;
+                navbar.style.top = scrolled ? '10px' : '20px';
+                navbar.style.transform = `translateX(-50%) scale(${scrolled ? 0.95 : 1})`;
+            });
+        }
+
+        gsap.from('.hero-label, .hero-title, .hero-subtitle, .hero-cta', {
+            y: -20, opacity: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out'
+        });
+
+        gsap.to('.scroll-indicator', { opacity: 0, duration: 0.6, scrollTrigger: { trigger: '.hero', start: '70% top', scrub: true }});
+
+        gsap.from('.flight-card, .duration-card', {
+            y: 30, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
+            scrollTrigger: { trigger: '.section-flights', start: 'top 75%' }
+        });
+
+        gsap.from('.philosophy-intro, .philosophy-contrast', {
+            y: 40, opacity: 0, duration: 0.9, stagger: 0.2,
+            scrollTrigger: { trigger: '.section-philosophy', start: 'top 65%' }
+        });
+
+        gsap.from('.feature-card', {
+            y: 30, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
+            scrollTrigger: { trigger: '.section-features', start: 'top 75%' }
+        });
+
+        gsap.from('.hotel-stack-item', {
+            y: 40, opacity: 0, duration: 0.7, stagger: 0.2, ease: 'power2.out',
+            scrollTrigger: { trigger: '.section-hotels', start: 'top 75%' }
+        });
+
+        gsap.from('.section-cta h2, .section-cta p, .btn', {
+            y: 40, opacity: 0, duration: 0.8, stagger: 0.15,
+            scrollTrigger: { trigger: '.section-cta', start: 'top 75%' }
+        });
+
+        gsap.from('.footer', {
+            y: 30, opacity: 0, duration: 0.8,
+            scrollTrigger: { trigger: '.footer', start: 'top 95%' }
+        });
+    }
+
+    // ============================================
+    // SMOOTH SCROLL
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const href = a.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // ============================================
+    // INICIALIZAÇÃO
+    // ============================================
+    document.addEventListener('DOMContentLoaded', () => {
+        renderizar();
+        initGalerias();
+        autoAdvanceGalerias();
+        typeWriter();
+        drawProtocolCanvas();
+        initAnimations();
+    });
+
+    window.galleryMove = galleryMove;
+    </script>
+</body>
+</html>
