@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento de Viagem - Natal | Rumo ao Destino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="https://i.ibb.co/pBfT1kPX/LOGO-RUMO-AO-DESTINO.png" alt="Rumo ao Destino Logo" class="nav-logo">
+            <a href="#contato" class="btn-primary-outline"><i class="fab fa-whatsapp"></i> Falar com Especialista</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Oferta Exclusiva</span>
+            <h1>Explore as belezas de <span class="highlight">Natal</span></h1>
+            <p class="hero-dates"><i class="far fa-calendar-alt"></i> 26 de Dezembro a 02 de Janeiro</p>
+            <p class="hero-subtitle">Voo de Ida e Volta + Hospedagem com Café da Manhã</p>
+            <a href="#opcoes" class="btn-primary pulse-btn">Ver Opções de Hospedagem</a>
+        </div>
+        <div class="wave-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,130.83,121.5,201.2,118.79,242.02,117.2,282.68,103.36,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Flight Info Section -->
+    <section class="flights-section">
+        <div class="container">
+            <h2 class="section-title">Detalhes do <span class="highlight">Voo</span></h2>
+            <div class="flights-grid">
+                <div class="flight-card glass-panel">
+                    <div class="flight-header">
+                        <i class="fas fa-plane-departure icon-flight"></i>
+                        <h3>Voo de Ida <span class="date">26/12</span></h3>
+                    </div>
+                    <div class="flight-route">
+                        <div class="airport">
+                            <span class="code">UDI</span>
+                            <span class="time">19:05</span>
+                        </div>
+                        <div class="flight-path">
+                            <div class="line"></div>
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="airport">
+                            <span class="code">NAT</span>
+                            <span class="time">21:55</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flight-card glass-panel">
+                    <div class="flight-header">
+                        <i class="fas fa-plane-arrival icon-flight"></i>
+                        <h3>Voo de Volta <span class="date">02/01</span></h3>
+                    </div>
+                    <div class="flight-route">
+                        <div class="airport">
+                            <span class="code">NAT</span>
+                            <span class="time">15:20</span>
+                        </div>
+                        <div class="flight-path return">
+                            <div class="line"></div>
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="airport">
+                            <span class="code">UDI</span>
+                            <span class="time">18:25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inclusions Box -->
+    <section class="inclusions-section">
+        <div class="container">
+            <div class="inclusions-box glass-panel">
+                <h3 class="inclusions-title">O que está incluído no pacote?</h3>
+                <ul class="inclusions-list">
+                    <li><i class="fas fa-check-circle"></i> Passagem aérea (Ida e Volta)</li>
+                    <li><i class="fas fa-check-circle"></i> Hospedagem (7 noites)</li>
+                    <li><i class="fas fa-check-circle"></i> Café da manhã</li>
+                    <li><i class="fas fa-check-circle"></i> Taxas de embarque</li>
+                </ul>
+                <div class="payment-info">
+                    <i class="far fa-credit-card"></i> Condição Especial: Parcele em até <strong>10x sem juros</strong> no cartão de crédito!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Options -->
+    <section id="opcoes" class="hotels-section">
+        <div class="container">
+            <h2 class="section-title">Opções de <span class="highlight">Hospedagem</span></h2>
+            
+            <!-- Option 1 -->
+            <div class="hotel-card glass-panel">
+                <div class="hotel-gallery">
+                    <div class="carousel" id="carousel-1">
+                        <div class="carousel-inner">
+                            <img src="https://i.ibb.co/rjffSFk/Natal-Dunnas-Hotel01.jpg" alt="Natal Dunnas Hotel" class="active">
+                            <img src="https://i.ibb.co/3yJb6sM1/Natal-Dunnas-Hotel02.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/j0SjMtX/Natal-Dunnas-Hotel03.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/5XmtfvDb/Natal-Dunnas-Hotel04.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/HLCGDS8W/Natal-Dunnas-Hotel05.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/4n1FTLR7/Natal-Dunnas-Hotel06.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/Tx3MKzvm/Natal-Dunnas-Hotel07.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/6QQ4RJj/Natal-Dunnas-Hotel08.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/C5qmJ6LZ/Natal-Dunnas-Hotel09.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/v6fCTGTS/Natal-Dunnas-Hotel10.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/v6mtNQHZ/Natal-Dunnas-Hotel11.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/7x6jWMGf/Natal-Dunnas-Hotel12.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/rKwBZxhm/Natal-Dunnas-Hotel13.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/R43y19MW/Natal-Dunnas-Hotel14.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/7x7dq4Cw/Natal-Dunnas-Hotel15.jpg" alt="Natal Dunnas Hotel">
+                            <img src="https://i.ibb.co/LDKSNC0Z/Natal-Dunnas-Hotel16.jpg" alt="Natal Dunnas Hotel">
+                        </div>
+                        <button class="carousel-control prev" onclick="moveCarousel('carousel-1', -1)">❮</button>
+                        <button class="carousel-control next" onclick="moveCarousel('carousel-1', 1)">❯</button>
+                        <div class="carousel-indicators"></div>
+                    </div>
+                </div>
+                <div class="hotel-info">
+                    <span class="option-badge">Opção 01</span>
+                    <h3 class="hotel-name">Natal Dunnas Hotel</h3>
+                    <p class="hotel-desc">Com localização privilegiada em Ponta Negra, excelente estrutura de lazer para toda a família e perto dos melhores restaurantes de Natal.</p>
+                    <div class="price-box">
+                        <span class="price-label">Por pessoa a partir de</span>
+                        <div class="price-value">R$ 4.450</div>
+                        <span class="price-installments">ou 10x de R$ 445 sem juros</span>
+                    </div>
+                    <a href="http://wa.me/556493391046?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20informa%C3%A7%C3%B5es%20da%20Op%C3%A7%C3%A3o%201%20-%20Natal%20Dunnas%20Hotel%20para%20o%20r%C3%A9veillon." target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Escolher esta opção</a>
+                </div>
+            </div>
+
+            <!-- Option 2 -->
+            <div class="hotel-card glass-panel reverse">
+                <div class="hotel-gallery">
+                    <div class="carousel" id="carousel-2">
+                        <div class="carousel-inner">
+                            <img src="https://i.ibb.co/GQZJL2sP/D-Beach-Resort-Natal01.jpg" alt="D Beach Resort" class="active">
+                            <img src="https://i.ibb.co/JWfpRD3x/D-Beach-Resort-Natal02.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/S43QVtRX/D-Beach-Resort-Natal03.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/BKFj77F6/D-Beach-Resort-Natal04.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/Q3ccFzNQ/D-Beach-Resort-Natal05.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/SXjzpYKY/D-Beach-Resort-Natal06.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/0jsM0RZC/D-Beach-Resort-Natal07.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/Gfd5Gr3R/D-Beach-Resort-Natal08.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/kffGM5T/D-Beach-Resort-Natal09.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/rGr5mDZb/D-Beach-Resort-Natal10.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/mrN1ZTqW/D-Beach-Resort-Natal11.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/p6cpBtB2/D-Beach-Resort-Natal12.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/qvdY8pz/D-Beach-Resort-Natal13.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/fGKmpdWv/D-Beach-Resort-Natal14.jpg" alt="D Beach Resort">
+                            <img src="https://i.ibb.co/mrnn46DL/D-Beach-Resort-Natal15.jpg" alt="D Beach Resort">
+                        </div>
+                        <button class="carousel-control prev" onclick="moveCarousel('carousel-2', -1)">❮</button>
+                        <button class="carousel-control next" onclick="moveCarousel('carousel-2', 1)">❯</button>
+                        <div class="carousel-indicators"></div>
+                    </div>
+                </div>
+                <div class="hotel-info">
+                    <span class="option-badge">Opção 02</span>
+                    <h3 class="hotel-name">D Beach Resort</h3>
+                    <p class="hotel-desc">Um resort majestoso com arquitetura que interage perfeitamente com a natureza e vista privilegiada para o mar e Morro do Careca.</p>
+                    <div class="price-box">
+                        <span class="price-label">Por pessoa a partir de</span>
+                        <div class="price-value">R$ 3.950</div>
+                        <span class="price-installments">ou 10x de R$ 395 sem juros</span>
+                    </div>
+                    <a href="http://wa.me/556493391046?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20informa%C3%A7%C3%B5es%20da%20Op%C3%A7%C3%A3o%202%20-%20D%20Beach%20Resort%20para%20o%20r%C3%A9veillon." target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Escolher esta opção</a>
+                </div>
+            </div>
+
+            <!-- Option 3 -->
+            <div class="hotel-card glass-panel">
+                <div class="hotel-gallery">
+                    <div class="carousel" id="carousel-3">
+                        <div class="carousel-inner">
+                            <img src="https://i.ibb.co/CpFRnzSJ/Visual-Praia-Hotel01.jpg" alt="Visual Praia Hotel" class="active">
+                            <img src="https://i.ibb.co/tTDkyrFM/Visual-Praia-Hotel02.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/C5bwFdVT/Visual-Praia-Hotel03.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/4wdnWxwy/Visual-Praia-Hotel04.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/ZzZCJR7C/Visual-Praia-Hotel05.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/8LPnnJgk/Visual-Praia-Hotel06.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/k6931Khb/Visual-Praia-Hotel07.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/r2hf2hnZ/Visual-Praia-Hotel08.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/Tqh1zmvY/Visual-Praia-Hotel09.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/YFKPq0Mr/Visual-Praia-Hotel10.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/ycdhgb5N/Visual-Praia-Hotel11.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/PZGL0z2X/Visual-Praia-Hotel12.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/wZJCgD1R/Visual-Praia-Hotel13.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/7tLLVddL/Visual-Praia-Hotel14.jpg" alt="Visual Praia Hotel">
+                            <img src="https://i.ibb.co/C3858q9W/Visual-Praia-Hotel15.jpg" alt="Visual Praia Hotel">
+                        </div>
+                        <button class="carousel-control prev" onclick="moveCarousel('carousel-3', -1)">❮</button>
+                        <button class="carousel-control next" onclick="moveCarousel('carousel-3', 1)">❯</button>
+                        <div class="carousel-indicators"></div>
+                    </div>
+                </div>
+                <div class="hotel-info">
+                    <span class="option-badge">Opção 03</span>
+                    <h3 class="hotel-name">Visual Praia Hotel</h3>
+                    <p class="hotel-desc">Sofisticação e conforto de alto padrão à beira-mar de Ponta Negra, com cascatas, pools luxuosas e culinária espetacular.</p>
+                    <div class="price-box">
+                        <span class="price-label">Por pessoa a partir de</span>
+                        <div class="price-value">R$ 5.200</div>
+                        <span class="price-installments">ou 10x de R$ 520 sem juros</span>
+                    </div>
+                    <a href="http://wa.me/556493391046?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20informa%C3%A7%C3%B5es%20da%20Op%C3%A7%C3%A3o%203%20-%20Visual%20Praia%20Hotel%20para%20o%20r%C3%A9veillon." target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Escolher esta opção</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer / Contact Setup -->
+    <footer id="contato" class="site-footer">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V0H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="https://i.ibb.co/pBfT1kPX/LOGO-RUMO-AO-DESTINO.png" alt="Rumo ao Destino Logo" class="footer-logo">
+                <p>Proporcionando memórias inesquecíveis nos melhores destinos do Brasil e do mundo.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Entre em Contato</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:contato@rumoaodestino.com.br">contato@rumoaodestino.com.br</a></li>
+                    <li><i class="fab fa-whatsapp"></i> <a href="http://wa.me/556493391046" target="_blank">(64) 99339-1046</a></li>
+                    <li><i class="fas fa-globe"></i> <a href="https://www.rumoaodestino.com.br" target="_blank">www.rumoaodestino.com.br</a></li>
+                    <li><i class="fab fa-instagram"></i> <a href="https://instagram.com/ag.rumoaodestino" target="_blank">@ag.rumoaodestino</a></li>
+                </ul>
+            </div>
+            <div class="footer-cta">
+                <h3>Ficou com dúvidas?</h3>
+                <p>Nossos especialistas em turismo estão prontos para te ajudar.</p>
+                <a href="http://wa.me/556493391046" target="_blank" class="btn-whatsapp lg"><i class="fab fa-whatsapp"></i> Solicitar Informações</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Agência Rumo ao Destino. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
