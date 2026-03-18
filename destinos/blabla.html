@@ -1,0 +1,142 @@
+=<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Arraste a variável do Webhook aqui] | Rumo ao Destino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="https://i.ibb.co/pBfT1kPX/LOGO-RUMO-AO-DESTINO.png" alt="Rumo ao Destino Logo" class="nav-logo">
+            <a href="#contato" class="btn-primary-outline"><i class="fab fa-whatsapp"></i> Falar com Especialista</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Coloque a variável {{BACKGROUND_HERO_URL}} para a foto de fundo. Se não tiver, coloque url('fixa.jpg') -->
+    <header class="hero" style="background-image: url('fixa.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Oferta Exclusiva</span>
+            <h1>Explore as belezas de <span class="highlight">[Arraste a variável do Webhook aqui]</span></h1>
+            <p class="hero-dates"><i class="far fa-calendar-alt"></i> [Arraste a variável do Webhook aqui]</p>
+            <p class="hero-subtitle"></p>
+            <a href="#opcoes" class="btn-primary pulse-btn">Ver Opções de Hospedagem</a>
+        </div>
+        <div class="wave-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,130.83,121.5,201.2,118.79,242.02,117.2,282.68,103.36,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Flight Info Section (No n8n este bloco HTML deve vir de uma var caso não queira fixar os 2 voos) -->
+    <section class="flights-section">
+        <div class="container">
+            <h2 class="section-title">Detalhes do <span class="highlight">Voo</span></h2>
+            <div class="flights-grid">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Inclusions Box -->
+    <section class="inclusions-section">
+        <div class="container">
+            <div class="inclusions-box glass-panel">
+                <h3 class="inclusions-title">O que está incluído no pacote?</h3>
+                <ul class="inclusions-list">
+                    
+                    <!-- O n8n vai cuspir <li>...</li> aqui -->
+                </ul>
+                <div class="payment-info">
+                    <i class="far fa-credit-card"></i> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Options -->
+    <section id="opcoes" class="hotels-section">
+        <div class="container">
+            <h2 class="section-title">Opções de <span class="highlight">Hospedagem</span></h2>
+            
+            <!-- Aqui o N8N vai inserir 1, 2 ou 3 Blocos de Hotéis dinamicamente a partir do arquivo bloco_hotel.html -->
+            
+<div class="hotel-card glass-panel ">
+    <div class="hotel-gallery">
+        <!-- O ID do carrossel precisa ser único (ex: carousel-1, carousel-2) para o JS não confundir as fotos -->
+        <div class="carousel" id="carousel-1">
+            <div class="carousel-inner">
+                <!-- O HTML das IMAGENS injetado aqui pelo n8n -->
+                [Arraste a variável do Webhook com a Lista Completa de Hotéis, Preços e Links de Fotos Aqui]
+                
+                <!-- EXEMPLO DE COMO A IMAGEM DEVERIA VIR (A PRIMEIRA DEVE TER A CLASSE 'active'):
+                <img src="linkdafoto.jpg" alt="Foto Hotel" class="active">
+                <img src="linkdafoto2.jpg" alt="Foto Hotel">
+                -->
+            </div>
+            <button class="carousel-control prev" onclick="moveCarousel('carousel-1', -1)">❮</button>
+            <button class="carousel-control next" onclick="moveCarousel('carousel-1', 1)">❯</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </div>
+    
+    <div class="hotel-info">
+        <span class="option-badge">Opção 1</span>
+        <h3 class="hotel-name">[Arraste a variável do Webhook com a Lista Completa de Hotéis, Preços e Links de Fotos Aqui]</h3>
+        <p class="hotel-desc"></p>
+        <div class="price-box">
+            <span class="price-label"></span>
+            <div class="price-value"></div>
+            <span class="price-installments"></span>
+        </div>
+        <a href="http://wa.me/[Arraste a variável aqui, ex: 556499339... ]?text=" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Escolher esta opção</a>
+    </div>
+</div>
+
+        </div>
+    </section>
+
+    <!-- Footer / Contact Setup -->
+    <footer id="contato" class="site-footer">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V0H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="https://i.ibb.co/pBfT1kPX/LOGO-RUMO-AO-DESTINO.png" alt="Rumo ao Destino Logo" class="footer-logo">
+                <p>Proporcionando memórias inesquecíveis nos melhores destinos do Brasil e do mundo.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Entre em Contato</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:contato@rumoaodestino.com.br">contato@rumoaodestino.com.br</a></li>
+                    <li><i class="fab fa-whatsapp"></i> <a href="http://wa.me/[Arraste a variável aqui, ex: 556499339... ]" target="_blank">[Arraste a variável aqui, ex: (64) 99339..]</a></li>
+                    <li><i class="fas fa-globe"></i> <a href="https://www.rumoaodestino.com.br" target="_blank">www.rumoaodestino.com.br</a></li>
+                    <li><i class="fab fa-instagram"></i> <a href="https://instagram.com/ag.rumoaodestino" target="_blank">@ag.rumoaodestino</a></li>
+                </ul>
+            </div>
+            <div class="footer-cta">
+                <h3>Ficou com dúvidas?</h3>
+                <p>Nossos especialistas em turismo estão prontos para te ajudar.</p>
+                <a href="http://wa.me/[Arraste a variável aqui, ex: 556499339... ]" target="_blank" class="btn-whatsapp lg"><i class="fab fa-whatsapp"></i> Solicitar Informações</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Agência Rumo ao Destino. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
